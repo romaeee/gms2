@@ -1,0 +1,14 @@
+Event Tap
+if GoogleMobileAds_InterstitialStatus() == "Ready"
+                {
+                    if oCtrlAdd.interstitial_loaded != true
+                        {
+                            oCtrlAdd.interstitial_loaded = true;
+                    }
+            }
+            else
+            {
+				global.adsss = 0;
+				room_goto(Room1);
+				//game_restart();
+           }
