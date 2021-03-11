@@ -1,0 +1,24 @@
+Event Create
+if os_type == os_android
+	{
+		app_id = "   "; 
+		interstitial_id = "ca-app-pub-3940256099942544/1033173712"; //ads after click
+		banner_id = "ca-app-pub-3940256099942544/6300978111"; //ads banner
+		
+	}
+
+GoogleMobileAds_Init(interstitial_id, app_id);
+GoogleMobileAds_LoadInterstitial();
+interstitial_loaded = false;
+
+//GoogleMobileAds_UseTestAds(true, " "); //for testing device id
+
+//banner vars
+//var _bw = GoogleMobileAds_BannerGetWidth();
+//var _bh = GoogleMobileAds_BannerGetHeight();
+//var _hh = display_get_height();
+//var _ww = display_get_width();
+
+//add banner @ location
+//GoogleMobileAds_AddBannerAt(banner_id,GoogleMobileAds_Banner,0,_hh);
+GoogleMobileAds_AddBanner(banner_id, GoogleMobileAds_Banner) //true
