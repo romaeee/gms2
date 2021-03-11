@@ -22,3 +22,37 @@ interstitial_loaded = false;
 //add banner @ location
 //GoogleMobileAds_AddBannerAt(banner_id,GoogleMobileAds_Banner,0,_hh);
 GoogleMobileAds_AddBanner(banner_id, GoogleMobileAds_Banner) //true
+
+Event Step
+if room = Room1
+	{
+		GoogleMobileAds_ShowBanner();
+	}
+if interstitial_loaded == true
+	{
+		interstitial_loaded = false;
+		GoogleMobileAds_ShowInterstitial();
+		
+	}
+
+Event Asinc - Social
+var _id = async_load[? "id"];
+if _id == GoogleMobileAds_ASyncEvent
+{
+var ident = async_load[? "type"];
+switch (ident)
+    {
+    case "banner_load":
+        if async_load[? "loaded"] == 1
+            {
+            var _bw = GoogleMobileAds_BannerGetWidth();
+            var _bh = GoogleMobileAds_BannerGetHeight();
+            var _hh = display_get_height();
+            var _ww = display_get_width();
+            //GoogleMobileAds_MoveBanner((_ww / 2) - (_bw / 2), _hh - _bh); //true
+			//GoogleMobileAds_MoveBanner((_ww / 2) - (_bw / 2), _bh); // top
+			GoogleMobileAds_MoveBanner((_ww / 2) - (_bw / 2), 0);
+            }
+        break;
+    }
+}
